@@ -1,4 +1,8 @@
-# Deploy log drainer serverless #
+# Heroku log drainer
+
+This log drainer transfers heroku logs to aws cloudwatch. The drainer runs on aws lambda. The installation of the lambda is performed via serverless.
+
+# Deploy the log drainer serverless #
 
 1. Configure aws-cli
 2. Install serverless
