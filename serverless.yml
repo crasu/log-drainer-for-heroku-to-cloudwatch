@@ -1,0 +1,30 @@
+service: log-drainer-for-heroku-to-cloudwatch # NOTE: update this with your service name
+
+provider:
+  name: aws
+  runtime: python3.7
+  stage: prod
+  iamRoleStatements: 
+    - Effect: Allow
+      Action:
+        - logs:CreateLogGroup
+        - logs:CreateLogStream
+        - logs:PutLogEvents
+        - logs:PutRetentionPolicy
+        - logs:DescribeLogStreams
+      Resource: "*"
+
+functions:
+  lambda_handler:
+    handler: handler.lambda_handler
+    events:
+      - http:
+          path: lambda_handler
+          method: any
+
+plugins:
+  - serverless-python-requirements
+
+custom:
+  pythonRequirements:
+    dockerizePip: non-linux
