@@ -19,4 +19,4 @@
 
 5. Add drain to your heroku app
 
-    heroku drains:add https://your-end-point-name/prod/lambda_handler -a your-app
+    heroku drains:add https://your-end-point-name/prod/lambda_handler/your-log-group-name/your-log-stream-name -a your-app
